@@ -5,7 +5,10 @@ body {
 
 .App {
   text-align: center;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Nunito', sans-serif;
+  color: black;
+  display: grid;
+  grid-gap: 5px;
+  min-height: 100vh;
 }
 
-/*font-family: 'Dancing Script', cursive; */

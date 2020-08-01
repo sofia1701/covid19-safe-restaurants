@@ -1,0 +1,27 @@
+.search-wrapper {
+  padding: 10px;
+  background-color: #bad8e9;
+  height: 37.5vh;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.search {
+  width: 40%;
+}
+
+button{
+  width: 15%;
+  background-color: rgb(230, 236, 213);
+}
+
+.criteria {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
