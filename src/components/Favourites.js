@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import userContext from "../context/userContext";
 import "../styles/favourites.css";
 
 export default function Favourites() {
-  return <div className="favourites">Favourites</div>;
+  const { userData } = useContext(userContext);
+
+  return (
+    <div className="favourites">
+      {userData.user ? (
+        <p>you can access your favourites</p>
+      ) : (
+        <p>Please login to your account</p>
+      )}
+    </div>
+  );
 }

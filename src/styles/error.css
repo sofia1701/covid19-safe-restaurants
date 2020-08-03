@@ -1,0 +1,14 @@
+.error-notice {
+  margin: 1rem 5rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(202, 126, 126);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(226, 172, 172);
+}
+
+.error-notice button {
+  background-color: rgb(245, 73, 73);
+  color: white;
+}

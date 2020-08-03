@@ -3,11 +3,13 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import userContext from "../../context/userContext";
+import Error from "./Error";
 import "../../styles/login.css";
 
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState();
 
   const { setUserData } = useContext(userContext);
   const history = useHistory();
@@ -15,22 +17,31 @@ export default function Login() {
   const submit = async (e) => {
     e.preventDefault();
 
-    const loginUser = { email, password };
-    const loginRes = await axios.post(
-      "http://localhost:5000/users/login",
-      loginUser
-    );
-    setUserData({
-      token: loginRes.data.token,
-      user: loginRes.data.user,
-    });
-    localStorage.setItem("auth-token", loginRes.data.token);
-    history.push("/");
+    try {
+      const loginUser = { email, password };
+      const loginRes = await axios.post(
+        "http://localhost:5000/users/login",
+        loginUser
+      );
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user,
+      });
+      localStorage.setItem("auth-token", loginRes.data.token);
+      history.push("/");
+    } catch (err) {
+      if (err.response.data.msg) {
+        setError(err.response.data.msg);
+      }
+    }
   };
 
   return (
     <div className="login">
       <h3>Login here...</h3>
+      {error && (
+        <Error message={error} clearError={() => setError(undefined)} />
+      )}
       <form className="login-form" onSubmit={submit}>
         <label htmlFor="login-email">Email</label>
         <input
