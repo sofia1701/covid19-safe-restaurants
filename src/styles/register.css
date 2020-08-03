@@ -1,0 +1,26 @@
+.register {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  background-color: rgb(187, 115, 115);
+  height: 80vh;
+}
+
+.register-form { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(250, 242, 242);
+}
+
+.register-form input {
+  margin-bottom: 1rem;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  padding: 0.3rem;
+  width: 50%;
+  background-color: rgb(235, 227, 227);
+}

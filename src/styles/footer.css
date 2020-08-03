@@ -1,0 +1,9 @@
+.footer {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+  background-color: darkseagreen;
+  height: 10vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

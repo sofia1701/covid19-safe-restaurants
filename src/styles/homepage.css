@@ -1,0 +1,4 @@
+.homepage {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
