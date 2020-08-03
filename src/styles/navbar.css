@@ -1,9 +1,9 @@
 nav {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
-  height: 15vh;
+  height: 10vh;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   background-color: rgb(230, 236, 213);
   
@@ -14,10 +14,28 @@ nav {
   font-family: "Dancing Script", cursive;
   text-decoration: none;
   color: black;
+  padding: 0 1.5rem
 }
 
 .nav-item {
   text-decoration: none;
   color: black;
   font-size: 20px;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item-button {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  background-color: rgb(207, 203, 203);
+  padding: 1.3rem 1rem;
+}
+
+.nav-item-button:hover {
+  background-color: rgb(173, 162, 162);
 }

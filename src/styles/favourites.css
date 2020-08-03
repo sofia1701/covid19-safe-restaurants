@@ -1,6 +1,6 @@
 .favourites {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  min-height: 75vh;
+  min-height: 80vh;
   background-color: rgb(224, 200, 137);
 }

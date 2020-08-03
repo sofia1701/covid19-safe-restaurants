@@ -1,0 +1,6 @@
+.logout {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  background-color: rgb(187, 115, 115);
+  height: 80vh;
+}
