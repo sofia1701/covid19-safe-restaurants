@@ -2,6 +2,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { FaUser } from "react-icons/fa";
 import userContext from "../../context/userContext";
 import Error from "./Error";
 import "../../styles/login.css";
@@ -38,10 +39,8 @@ export default function Login() {
 
   return (
     <div className="login">
-      <h3>Login here...</h3>
-      {error && (
-        <Error message={error} clearError={() => setError(undefined)} />
-      )}
+      {error && <Error message={error} />}
+      <FaUser size={62} style={{ color: "#415D43" }} />
       <form className="login-form" onSubmit={submit}>
         <label htmlFor="login-email">Email</label>
         <input
@@ -57,7 +56,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Log in" className="login-button" />
       </form>
     </div>
   );

@@ -2,14 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../../styles/error.css";
 
-export default function Error({ message, clearError }) {
+export default function Error({ message }) {
   return (
     <div>
       <div className="error-notice">
         <span>{message}</span>
-        <button type="button" onClick={clearError}>
-          x
-        </button>
       </div>
     </div>
   );
@@ -17,5 +14,4 @@ export default function Error({ message, clearError }) {
 
 Error.propTypes = {
   message: PropTypes.string.isRequired,
-  clearError: PropTypes.func.isRequired,
 };

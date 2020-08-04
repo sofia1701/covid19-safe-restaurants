@@ -2,6 +2,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { FaUsers } from "react-icons/fa";
 import userContext from "../../context/userContext";
 import Error from "./Error";
 import "../../styles/register.css";
@@ -43,10 +44,8 @@ export default function Register() {
 
   return (
     <div className="register">
-      <h3>Register here...</h3>
-      {error && (
-        <Error message={error} clearError={() => setError(undefined)} />
-      )}
+      {error && <Error message={error} />}
+      <FaUsers size={72} style={{ color: "#415D43" }} />
       <form className="register-form" onSubmit={submit}>
         <label htmlFor="register-display-name">Name</label>
         <input
@@ -71,7 +70,7 @@ export default function Register() {
           type="password"
           onChange={(e) => setPasswordCheck(e.target.value)}
         />
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register" className="register-button" />
       </form>
     </div>
   );

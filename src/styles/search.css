@@ -1,7 +1,7 @@
 .search-wrapper {
   padding: 10px;
-  background-color: #bad8e9;
-  height: 37.5vh;
+  background-color: #A1CCA5;
+  min-height: 37.5vh;
 }
 
 .search-box {
@@ -12,11 +12,19 @@
 
 .search {
   width: 40%;
+  border-radius: 10px;
+  background-color: rgb(247, 234, 234);
 }
 
 button{
   width: 15%;
-  background-color: rgb(230, 236, 213);
+  background-color: #709775;
+  border-radius: 10px;
+  color: white;
+}
+
+button:hover {
+  background-color: #73A580;
 }
 
 .criteria {
