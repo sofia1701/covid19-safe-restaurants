@@ -1,7 +1,7 @@
 .register {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  background-color: #A1CCA5;
+  background-color: rgb(240, 220, 176);;
   min-height: 80vh;
   padding-top: 30px;
 }
@@ -28,7 +28,7 @@
 }
 
 .register-button {
-  background-color: #709775;
+  background-color: #9A031E;
   color:white;
   border-radius: 10px;
   padding: 0.6rem;
@@ -36,5 +36,5 @@
 }
 
 .register-button:hover {
-  background-color: #73A580;
+  background-color: #BF4E30;
 }

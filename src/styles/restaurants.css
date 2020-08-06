@@ -1,0 +1,38 @@
+.restaurants {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+}
+
+.card {
+  background-color: rgb(240, 220, 176);
+  padding: 10px;
+  display: flex
+}
+
+.card-header {
+  background-color: white;
+  padding: 10px;
+  min-width: 47vh;
+}
+
+.text-link {
+  color: rgb(245, 37, 245)
+}
+
+.icons-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.small-icon {
+  width:90px;
+  height: 50px;
+}
+
+.small-icon-just {
+  width:100px;
+  height: 20px;
+}
