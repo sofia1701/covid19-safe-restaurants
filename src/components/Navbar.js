@@ -17,12 +17,13 @@ export default function Navbar() {
   return (
     <nav>
       <Link to="/" className="title">
-        <p>Title</p>
+        Title
       </Link>
-      <Link to="/favourites" className="nav-item">
-        Favourites
-      </Link>
+
       <div className="auth-buttons">
+        <Link to="/favourites" className="nav-item-button">
+          Favourites
+        </Link>
         {userData.user ? (
           <Link to="/logout" onClick={logout} className="nav-item-button">
             Log Out

@@ -40,8 +40,9 @@ export default function Login() {
   return (
     <div className="login">
       {error && <Error message={error} />}
-      <FaUser size={62} style={{ color: "#9A031E" }} />
+
       <form className="login-form" onSubmit={submit}>
+        <FaUser size={62} style={{ color: "#9A031E" }} />
         <label htmlFor="login-email">Email</label>
         <input
           id="login-email"

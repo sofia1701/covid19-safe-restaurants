@@ -45,8 +45,9 @@ export default function Register() {
   return (
     <div className="register">
       {error && <Error message={error} />}
-      <FaUsers size={72} style={{ color: "#9A031E" }} />
+
       <form className="register-form" onSubmit={submit}>
+        <FaUsers size={72} style={{ color: "#9A031E" }} />
         <label htmlFor="register-display-name">Name</label>
         <input
           id="register-display-name"

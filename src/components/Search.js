@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
+import { FaSearch } from "react-icons/fa";
 import "../styles/search.css";
 
 export default function Search() {
@@ -15,7 +16,9 @@ export default function Search() {
             type="text"
             placeholder="Enter your postcode..."
           />
-          <button type="button">Search</button>
+          <button type="button">
+            <FaSearch />
+          </button>
         </form>
 
         <div className="criteria">

@@ -1,7 +1,7 @@
 .login {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  background-color: rgb(240, 220, 176);
+  background-size: cover;
   height: 80vh;
   padding-top: 30px;
 }
@@ -11,6 +11,7 @@
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  margin: 0 400px;
 }
 
 .login-form input {
@@ -22,7 +23,7 @@
   padding: 0.3rem;
   height: 25px;
   border-radius: 10px;
-  width: 30%;
+  width: 80%;
   background-color: rgb(247, 234, 234);
 }
 

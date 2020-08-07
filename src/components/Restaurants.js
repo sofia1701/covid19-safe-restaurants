@@ -35,6 +35,7 @@ export default function Restaurants() {
           website={restaurant.website}
           instagram={restaurant.instagram}
           phoneNumber={restaurant.phoneNumber}
+          picture={restaurant.picture}
         />
       ))}
     </div>

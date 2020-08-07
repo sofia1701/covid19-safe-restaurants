@@ -19,12 +19,12 @@ export default function PropertyCard({
   website,
   instagram,
   phoneNumber,
+  picture,
 }) {
   return (
     <div className="card">
       <div className="card-header">
         <h3>{name}</h3>
-        <h4>{type}</h4>
         <div>
           {isOpen ? (
             <div style={{ color: "green" }}>Open</div>
@@ -32,18 +32,20 @@ export default function PropertyCard({
             <div style={{ color: "red" }}>Temporarly Closed</div>
           )}
         </div>
-        <a
-          href={instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-link"
-        >
-          <FaInstagram size={30} />
-        </a>
-
-        <div>{phoneNumber}</div>
+        <img className="picture" src={picture} alt="restaurant" />
+        <div>
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link"
+          >
+            <FaInstagram size={30} />
+          </a>
+        </div>
       </div>
-      <div>
+      <div className="card-description">
+        <h4>{type}</h4>
         <p>{description}</p>
 
         <p>{openingTimes}</p>
@@ -67,6 +69,7 @@ export default function PropertyCard({
         </div>
         <div>{outdoorSeating}</div>
         <p>{website}</p>
+        <div>{phoneNumber}</div>
       </div>
     </div>
   );
@@ -86,4 +89,5 @@ PropertyCard.propTypes = {
   website: PropTypes.string.isRequired,
   instagram: PropTypes.string.isRequired,
   phoneNumber: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
 };
