@@ -1,5 +1,4 @@
 .search-wrapper {
-  padding: 10px;
   background: url("./logos/searchBg.png");
   min-height: 37.5vh;
   display: flex;
@@ -17,18 +16,15 @@
   background-color: rgb(240, 220, 176);
   margin: 0 300px;
   padding: 15px 40px;
-  border-radius: 10px;
 }
 
 .search {
   width: 80%;
-  border-radius: 10px;
 }
 
 button{
   width: 15%;
   background-color: #9A031E;
-  border-radius: 10px;
   color: white;
 }
 

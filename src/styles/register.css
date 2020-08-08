@@ -2,15 +2,15 @@
   grid-column: 1 / 4;
   grid-row: 2 / 3;
   background-size: cover;
-  min-height: 80vh;
-  padding-top: 30px;
+  min-height: 70vh;
+  padding-top: 20px;
 }
 
 .register-form { 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   margin: 0 400px;
 }
 
@@ -23,7 +23,6 @@
 .register-form input[type="password"] {
   padding: 0.3rem;
   height: 25px;
-  border-radius: 10px;
   width: 80%;
   background-color: rgb(247, 234, 234);
 }
@@ -31,7 +30,6 @@
 .register-button {
   background-color: #9A031E;
   color:white;
-  border-radius: 10px;
   padding: 0.6rem;
   width: 30%;
 }

@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FaInstagram } from "react-icons/fa";
-import deliveroo from "../styles/logos/deliveroo.png";
-import justEat from "../styles/logos/justEat.png";
-import uberEats from "../styles/logos/uberEats.png";
+import { FaInstagram, FaCheck, FaTimes } from "react-icons/fa";
 
 export default function PropertyCard({
   name,
@@ -21,56 +18,107 @@ export default function PropertyCard({
   phoneNumber,
   picture,
 }) {
+  const [flip, setFlip] = useState(false);
+
   return (
     <div className="card">
-      <div className="card-header">
-        <h3>{name}</h3>
-        <div>
-          {isOpen ? (
-            <div style={{ color: "green" }}>Open</div>
-          ) : (
-            <div style={{ color: "red" }}>Temporarly Closed</div>
-          )}
-        </div>
-        <img className="picture" src={picture} alt="restaurant" />
-        <div>
-          <a
-            href={instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link"
+      {flip ? (
+        <figure className="card-description">
+          <h4>{type}</h4>
+          <p>{description}</p>
+          <p>{openingTimes}</p>
+          <p>{eatOutToHelpOut}</p>
+          <div>
+            <a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              <FaInstagram size={30} />
+            </a>
+            <a
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              Website
+            </a>
+          </div>
+          <div>{phoneNumber}</div>
+          <button
+            className="details-button"
+            type="button"
+            onClick={() => setFlip(!flip)}
           >
-            <FaInstagram size={30} />
-          </a>
-        </div>
-      </div>
-      <div className="card-description">
-        <h4>{type}</h4>
-        <p>{description}</p>
-
-        <p>{openingTimes}</p>
-        <p>{eatOutToHelpOut}</p>
-        <div className="icons-list">
+            Back
+          </button>
+        </figure>
+      ) : (
+        <figure className="card-header">
+          <h3>{name}</h3>
+          <img className="picture" src={picture} alt="restaurant" />
           <div>
+            {isOpen ? (
+              <div style={{ color: "green" }}>Open</div>
+            ) : (
+              <div style={{ color: "red" }}>Temporarly Closed</div>
+            )}
+          </div>
+          <div>
+            {outdoorSeating ? (
+              <div>Outdoor seating: Available</div>
+            ) : (
+              <div>Outdoor seating: Not available</div>
+            )}
+          </div>
+          <div className="delivery">
             {onDeliveroo ? (
-              <img className="small-icon" alt="deliveroo" src={deliveroo} />
-            ) : null}
-          </div>
-          <div>
+              <div className="delivery-list">
+                Deliveroo:
+                <FaCheck />
+              </div>
+            ) : (
+              <div className="delivery-list">
+                Deliveroo:
+                <FaTimes />
+              </div>
+            )}
+
             {onUberEats ? (
-              <img className="small-icon" alt="Uber Eats" src={uberEats} />
-            ) : null}
-          </div>
-          <div>
+              <div className="delivery-list">
+                Uber Eats:
+                <FaCheck />
+              </div>
+            ) : (
+              <div className="delivery-list">
+                Uber Eats:
+                <FaTimes />
+              </div>
+            )}
+
             {onJustEat ? (
-              <img className="small-icon-just" alt="Just Eat" src={justEat} />
-            ) : null}
+              <div className="delivery-list">
+                Just Eat:
+                <FaCheck />
+              </div>
+            ) : (
+              <div className="delivery-list">
+                Just Eat:
+                <FaTimes />
+              </div>
+            )}
           </div>
-        </div>
-        <div>{outdoorSeating}</div>
-        <p>{website}</p>
-        <div>{phoneNumber}</div>
-      </div>
+          <button
+            className="details-button"
+            type="button"
+            onClick={() => setFlip(!flip)}
+          >
+            More
+          </button>
+        </figure>
+      )}
     </div>
   );
 }

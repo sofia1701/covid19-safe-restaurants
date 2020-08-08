@@ -20,20 +20,20 @@ export default function Navbar() {
         Title
       </Link>
 
-      <div className="auth-buttons">
-        <Link to="/favourites" className="nav-item-button">
+      <div className="nav-buttons">
+        <Link to="/favourites" className="nav-button">
           Favourites
         </Link>
         {userData.user ? (
-          <Link to="/logout" onClick={logout} className="nav-item-button">
+          <Link to="/logout" onClick={logout} className="nav-button">
             Log Out
           </Link>
         ) : (
           <>
-            <Link to="/login" className="nav-item-button">
-              SignIn
+            <Link to="/login" className="nav-button">
+              Sign In
             </Link>
-            <Link to="/register" className="nav-item-button">
+            <Link to="/register" className="nav-button">
               Register
             </Link>
           </>

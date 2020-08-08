@@ -1,47 +1,37 @@
 nav {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
-  height: 10vh;
-  align-items: center;
+  height: 15vh;
   justify-content: space-between;
   display: flex;
   background: url("./logos/searchBg.png");
-
 }
-
 
 .title {
   font-size: 40px;
   font-family: "Dancing Script", cursive;
   text-decoration: none;
   color: white;
+  align-items: center;
   height: 100%;
   padding: 0rem 2rem;
   display: flex;
-  align-items: center;
   background-color: #9A031E;
+  letter-spacing: 2px;
 }
 
-.nav-item {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-}
-
-.auth-buttons {
+.nav-buttons {
+  background-color: #9A031E;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.nav-item-button {
+.nav-button {
+  background-color: #9A031E;
   text-decoration: none;
   color: white;
   font-size: 15px;
-  background-color: #9A031E;
-  padding: 1.3rem 1rem;
-  
-}
-
-.nav-item-button:hover {
-  background-color: #BF4E30;
+  letter-spacing: 2px;
+  padding: 0 1rem;
 }

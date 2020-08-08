@@ -13,6 +13,7 @@ export default function Restaurants() {
         setRestaurants(response.data);
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
       });
   }, []);
