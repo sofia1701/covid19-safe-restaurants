@@ -26,27 +26,32 @@ export default function PropertyCard({
         <figure className="card-description">
           <h4>{type}</h4>
           <p>{description}</p>
-          <p>{openingTimes}</p>
+          <h4>{openingTimes}</h4>
           <p>{eatOutToHelpOut}</p>
           <div>
-            <a
-              href={instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <FaInstagram size={30} />
-            </a>
-            <a
-              href={website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              Website
-            </a>
+            <p>{phoneNumber}</p>
+            <p>
+              <a
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link"
+              >
+                Website
+              </a>
+            </p>
+            <p>
+              <a
+                href={instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link"
+              >
+                <FaInstagram size={30} />
+              </a>
+            </p>
           </div>
-          <div>{phoneNumber}</div>
+
           <button
             className="details-button"
             type="button"

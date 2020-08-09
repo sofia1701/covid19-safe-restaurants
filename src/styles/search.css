@@ -1,9 +1,5 @@
 .search-wrapper {
-  background: url("./logos/searchBg.png");
   min-height: 37.5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .search-box {
@@ -14,12 +10,11 @@
 
 .search-info {
   background-color: rgb(240, 220, 176);
-  margin: 0 300px;
   padding: 15px 40px;
 }
 
 .search {
-  width: 80%;
+  width: 40%;
 }
 
 button{
