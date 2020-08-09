@@ -17,10 +17,6 @@
   align-items: center;
 }
 
-.card-description {
-  padding:0 5px;
-}
-
 .card-description p {
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
