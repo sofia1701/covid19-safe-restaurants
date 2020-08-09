@@ -8,7 +8,7 @@ body {
   font-family: 'Nunito', sans-serif;
   color: black;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 1vh;
   min-height: 100vh;
 }
 

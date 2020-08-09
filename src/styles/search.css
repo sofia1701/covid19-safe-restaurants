@@ -1,5 +1,5 @@
 .search-wrapper {
-  min-height: 37.5vh;
+  
 }
 
 .search-box {
@@ -32,4 +32,20 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  
+}
+
+@media only screen and (max-width: 400px) {
+  .search-info {
+    padding: 5px 20px;
+  }
+  .search {
+    width: 80%;
+  }
+  button{
+    width: 20%;
+  }
 }

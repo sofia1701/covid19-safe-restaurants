@@ -1,9 +1,8 @@
 .register {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  background-size: cover;
-  min-height: 70vh;
-  padding-top: 20px;
+  min-height: 71vh;
+  padding-top: 10px;
 }
 
 .register-form { 
@@ -36,4 +35,18 @@
 
 .register-button:hover {
   background-color: #BF4E30;
+}
+
+@media only screen and (max-width: 768px) {
+  .register-form { 
+    padding: 10px;
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .register-form { 
+    padding: 10px;
+    margin: 0 10px;
+  }
 }

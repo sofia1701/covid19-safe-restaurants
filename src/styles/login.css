@@ -1,8 +1,7 @@
 .login {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  background-size: cover;
-  height: 70vh;
+  height: 71vh;
   padding-top: 20px;
 }
 
@@ -35,4 +34,18 @@
 
 .login-button:hover {
   background-color: #BF4E30;
+}
+
+@media only screen and (max-width: 768px) {
+  .login-form { 
+    padding: 10px;
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .login-form { 
+    padding: 10px;
+    margin: 0 10px;
+  }
 }

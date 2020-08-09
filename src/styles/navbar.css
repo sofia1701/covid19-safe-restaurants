@@ -35,3 +35,15 @@ nav {
   letter-spacing: 2px;
   padding: 0 1rem;
 }
+
+@media only screen and (max-width: 400px) {
+  nav {
+    height: 10vh;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 20px;
+    padding: 0rem 1rem;
+  }
+}
