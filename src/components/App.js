@@ -17,6 +17,8 @@ function App() {
     user: undefined,
   });
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
@@ -44,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <userContext.Provider value={{ userData, setUserData }}>
+      <userContext.Provider value={{ userData, setUserData, query, setQuery }}>
         <Navbar />
 
         <Switch>

@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import RestaurantCard from "./RestaurantCard";
 import "../styles/restaurants.css";
+import userContext from "../context/userContext";
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
+  const { query } = useContext(userContext);
 
   useEffect(() => {
     axios
@@ -18,9 +21,26 @@ export default function Restaurants() {
       });
   }, []);
 
+  const { search } = useLocation();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/api/v1/restaurant${search}`)
+      .then((response) => {
+        setRestaurants(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [search]);
+
+  const filteredRes = restaurants.filter((restaurant) => {
+    return restaurant.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+  });
+
   return (
     <div className="restaurants">
-      {restaurants.map((restaurant) => (
+      {filteredRes.map((restaurant) => (
         <RestaurantCard
           key={restaurant._id}
           name={restaurant.name}
