@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FaInstagram, FaCheck, FaTimes } from "react-icons/fa";
 
-export default function PropertyCard({
+export default function RestaurantCard({
   name,
   type,
   description,
@@ -128,7 +128,7 @@ export default function PropertyCard({
   );
 }
 
-PropertyCard.propTypes = {
+RestaurantCard.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
