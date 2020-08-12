@@ -17,9 +17,16 @@
   align-items: center;
 }
 
+.card-description {
+  margin: 0 10px;
+}
+
+.card-description h4 {
+  margin-bottom: 0;
+}
+
 .card-description p {
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 .details-button {
@@ -28,11 +35,18 @@
   height: 40px;
   color: white;
   background-color: #9A031E;
+  margin-top: 0;
+}
+
+.contact-icons {
+  display: flex;
+  align-items: center;
 }
 
 .text-link {
-  color: rgb(245, 37, 245);
   text-decoration: none;
+  color: black;
+  margin: 5px 15px
 }
 
 .delivery {

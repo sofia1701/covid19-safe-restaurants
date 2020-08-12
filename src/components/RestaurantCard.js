@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FaInstagram, FaCheck, FaTimes } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaCheck,
+  FaTimes,
+  FaPhone,
+  FaGlobe,
+} from "react-icons/fa";
 
 export default function RestaurantCard({
   name,
@@ -26,30 +32,49 @@ export default function RestaurantCard({
         <figure className="card-description">
           <h4>{type}</h4>
           <p>{description}</p>
-          <h4>{openingTimes}</h4>
-          <p>{eatOutToHelpOut}</p>
+          <h4>Hours</h4>
+          <p>{openingTimes}</p>
           <div>
-            <p>{phoneNumber}</p>
-            <p>
+            {eatOutToHelpOut ? (
+              <div>
+                <h4>Eat Out to Help Out</h4>
+                {eatOutToHelpOut}
+              </div>
+            ) : (
+              <div>
+                <h4>Eat Out to Help Out</h4>
+                <p>Not Available</p>
+              </div>
+            )}
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <div className="contact-icons">
+              {phoneNumber ? (
+                <i title={phoneNumber} className="text-link">
+                  <FaPhone size={25} />
+                </i>
+              ) : null}
+
               <a
                 href={website}
+                title="Website"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-link"
               >
-                Website
+                <FaGlobe size={30} />
               </a>
-            </p>
-            <p>
               <a
                 href={instagram}
+                title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-link"
               >
                 <FaInstagram size={30} />
               </a>
-            </p>
+            </div>
           </div>
 
           <button
