@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import {
   FaInstagram,
@@ -6,9 +6,12 @@ import {
   FaTimes,
   FaPhone,
   FaGlobe,
+  FaHeart,
 } from "react-icons/fa";
+import userContext from "../context/userContext";
 
 export default function RestaurantCard({
+  _id,
   name,
   type,
   description,
@@ -23,8 +26,10 @@ export default function RestaurantCard({
   instagram,
   phoneNumber,
   picture,
+  onSaveRestaurant,
 }) {
   const [flip, setFlip] = useState(false);
+  const { userData } = useContext(userContext);
 
   return (
     <div className="card">
@@ -140,6 +145,16 @@ export default function RestaurantCard({
               </div>
             )}
           </div>
+          {userData.user ? (
+            <button
+              type="button"
+              className="save-button"
+              onClick={() => onSaveRestaurant(_id)}
+            >
+              <FaHeart size={22} />
+            </button>
+          ) : null}
+
           <button
             className="details-button"
             type="button"
@@ -154,6 +169,7 @@ export default function RestaurantCard({
 }
 
 RestaurantCard.propTypes = {
+  _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
@@ -168,4 +184,5 @@ RestaurantCard.propTypes = {
   instagram: PropTypes.string.isRequired,
   phoneNumber: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  onSaveRestaurant: PropTypes.func.isRequired,
 };

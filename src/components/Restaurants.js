@@ -7,7 +7,9 @@ import userContext from "../context/userContext";
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
+
   const { query } = useContext(userContext);
+  const { userData } = useContext(userContext);
 
   useEffect(() => {
     axios
@@ -30,9 +32,26 @@ export default function Restaurants() {
         setRestaurants(response.data);
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
       });
   }, [search]);
+
+  const handleSaveRestaurant = (restaurantId) => {
+    axios
+      .post("http://localhost:4000/api/v1/favourite", {
+        fbUserId: userData.user._id,
+        restaurant: restaurantId,
+      })
+      .then(() => {
+        // eslint-disable-next-line no-alert
+        alert("Property saved in your favourites.");
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      });
+  };
 
   const filteredRes = restaurants.filter((restaurant) => {
     return restaurant.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
@@ -43,6 +62,7 @@ export default function Restaurants() {
       {filteredRes.map((restaurant) => (
         <RestaurantCard
           key={restaurant._id}
+          _id={restaurant._id}
           name={restaurant.name}
           type={restaurant.type}
           description={restaurant.description}
@@ -57,6 +77,7 @@ export default function Restaurants() {
           instagram={restaurant.instagram}
           phoneNumber={restaurant.phoneNumber}
           picture={restaurant.picture}
+          onSaveRestaurant={handleSaveRestaurant}
         />
       ))}
     </div>

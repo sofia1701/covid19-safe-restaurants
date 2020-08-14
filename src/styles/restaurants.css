@@ -67,6 +67,12 @@
   height: 250px;
 }
 
+.save-button {
+  background-color: rgb(240, 220, 176);
+  border: none;
+  color: black;
+}
+
 @media only screen and (max-width: 768px) {
   .restaurants {
     grid-template-columns: repeat(2, 1fr);

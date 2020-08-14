@@ -22,7 +22,7 @@ export default function Search() {
             onChange={(e) => setQuery(e.target.value)}
             className="search-input"
             type="text"
-            placeholder="The Bay Horse Tavern..."
+            placeholder="e.g. The Bay Horse Tavern"
           />
         </form>
         <h3>Or select your favourite cuisine</h3>
