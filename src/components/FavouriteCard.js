@@ -1,26 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function FavouriteCard({ name, type, isOpen, picture }) {
+export default function FavouriteCard({ name, type, picture }) {
   return (
-    <div>
-      <h3>{name}</h3>
-      <img className="picture" src={picture} alt="restaurant" />
-      <h4>{type}</h4>
+    <>
       <div>
-        {isOpen ? (
-          <div style={{ color: "green" }}>Open</div>
-        ) : (
-          <div style={{ color: "red" }}>Temporarly Closed</div>
-        )}
+        <img className="favourite-picture" src={picture} alt="restaurant" />
       </div>
-    </div>
+      <div className="favourite-header">
+        <h3>{name}</h3>
+        <h4>{type}</h4>
+      </div>
+      <div>
+        <h4>Address:</h4>
+        <h4>Rating:</h4>
+      </div>
+    </>
   );
 }
 
 FavouriteCard.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool.isRequired,
   picture: PropTypes.string.isRequired,
 };

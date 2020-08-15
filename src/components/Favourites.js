@@ -11,7 +11,7 @@ export default function Favourites() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/favourite?populate=restaurant")
+      .get(`http://localhost:4000/api/v1/favourite?populate=restaurant`)
       .then((response) => {
         setFavourites(response.data);
       })
@@ -26,15 +26,13 @@ export default function Favourites() {
       {userData.user ? (
         <div className="favourite-cards">
           {favourites.map((favourite) => (
-            <div className="favourite-card" key={favourite._id}>
-              <FavouriteCard
-                _id={favourite.restaurant._id}
-                name={favourite.restaurant.name}
-                type={favourite.restaurant.type}
-                isOpen={favourite.restaurant.isOpen}
-                picture={favourite.restaurant.picture}
-              />
-            </div>
+            <FavouriteCard
+              key={favourite._id}
+              _id={favourite.restaurant._id}
+              name={favourite.restaurant.name}
+              type={favourite.restaurant.type}
+              picture={favourite.restaurant.picture}
+            />
           ))}
         </div>
       ) : (

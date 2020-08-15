@@ -3,3 +3,19 @@
   grid-row: 2 / 3;
   min-height: 73vh;
 }
+
+.favourite-cards {
+  display: flex;
+  padding: 10px;
+  background-color: rgb(240, 220, 176);
+}
+
+.favourite-picture {
+  width: 120px;
+  height: 120px;
+  padding: 0 10px;
+}
+
+.favourite-header {
+  padding: 0 20px;
+}

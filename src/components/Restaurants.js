@@ -40,7 +40,7 @@ export default function Restaurants() {
   const handleSaveRestaurant = (restaurantId) => {
     axios
       .post("http://localhost:4000/api/v1/favourite", {
-        fbUserId: userData.user._id,
+        fbUserId: userData.user.id,
         restaurant: restaurantId,
       })
       .then(() => {
