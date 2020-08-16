@@ -2,12 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import userContext from "../context/userContext";
 import FavouriteCard from "./FavouriteCard";
+import Alert from "./Alert";
 import "../styles/favourites.css";
 
 export default function Favourites() {
   const { userData } = useContext(userContext);
 
   const [favourites, setFavourites] = useState([]);
+  const [alert, setAlert] = useState({ message: "", isSuccess: false });
 
   useEffect(() => {
     if (userData.user !== undefined) {
@@ -29,9 +31,20 @@ export default function Favourites() {
     axios
       .delete(`http://localhost:4000/api/v1/favourite/${_id}`)
       .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
+      .then(() => {
+        setAlert({
+          message: "Property deleted.",
+          isSuccess: true,
+        });
+      })
+      .then(() => {
+        setTimeout(() => setAlert({ message: "", isSuccess: false }), 2000);
+      })
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
       });
   };
 
@@ -43,17 +56,21 @@ export default function Favourites() {
           {userData.user.displayName}
         </h3>
       ) : null}
+      <Alert message={alert.message} success={alert.isSuccess} />
+
       {userData.user ? (
-        favourites.map((favourite) => (
-          <FavouriteCard
-            key={favourite._id}
-            _id={favourite._id}
-            name={favourite.restaurant.name}
-            type={favourite.restaurant.type}
-            picture={favourite.restaurant.picture}
-            deleteFavourite={handleDeleteFavourite}
-          />
-        ))
+        <div className="favourite-cards">
+          {favourites.map((favourite) => (
+            <FavouriteCard
+              key={favourite._id}
+              _id={favourite._id}
+              name={favourite.restaurant.name}
+              type={favourite.restaurant.type}
+              picture={favourite.restaurant.picture}
+              deleteFavourite={handleDeleteFavourite}
+            />
+          ))}
+        </div>
       ) : (
         <p>Please login to your account.</p>
       )}

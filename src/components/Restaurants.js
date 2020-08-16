@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import RestaurantCard from "./RestaurantCard";
+import Alert from "./Alert";
 import "../styles/restaurants.css";
 import userContext from "../context/userContext";
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
+  const [alert, setAlert] = useState({ message: "", isSuccess: false });
 
   const { query } = useContext(userContext);
   const { userData } = useContext(userContext);
@@ -20,6 +22,10 @@ export default function Restaurants() {
       .catch((err) => {
         // eslint-disable-next-line no-console
         console.log(err);
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
       });
   }, []);
 
@@ -44,12 +50,26 @@ export default function Restaurants() {
         restaurant: restaurantId,
       })
       .then(() => {
-        // eslint-disable-next-line no-alert
-        alert("Property saved in your favourites.");
+        setAlert({
+          message: "Property saved in favourites.",
+          isSuccess: true,
+        });
       })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
+      .then(() => {
+        setTimeout(
+          () =>
+            setAlert({
+              message: "",
+              isSuccess: false,
+            }),
+          2000
+        );
+      })
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
       });
   };
 
@@ -58,28 +78,31 @@ export default function Restaurants() {
   });
 
   return (
-    <div className="restaurants">
-      {filteredRes.map((restaurant) => (
-        <RestaurantCard
-          key={restaurant._id}
-          _id={restaurant._id}
-          name={restaurant.name}
-          type={restaurant.type}
-          description={restaurant.description}
-          onDeliveroo={restaurant.onDeliveroo}
-          onJustEat={restaurant.onJustEat}
-          onUberEats={restaurant.onUberEats}
-          isOpen={restaurant.isOpen}
-          openingTimes={restaurant.openingTimes}
-          eatOutToHelpOut={restaurant.eatOutToHelpOut}
-          outdoorSeating={restaurant.outdoorSeating}
-          website={restaurant.website}
-          instagram={restaurant.instagram}
-          phoneNumber={restaurant.phoneNumber}
-          picture={restaurant.picture}
-          onSaveRestaurant={handleSaveRestaurant}
-        />
-      ))}
-    </div>
+    <>
+      <Alert message={alert.message} success={alert.isSuccess} />
+      <div className="restaurants">
+        {filteredRes.map((restaurant) => (
+          <RestaurantCard
+            key={restaurant._id}
+            _id={restaurant._id}
+            name={restaurant.name}
+            type={restaurant.type}
+            description={restaurant.description}
+            onDeliveroo={restaurant.onDeliveroo}
+            onJustEat={restaurant.onJustEat}
+            onUberEats={restaurant.onUberEats}
+            isOpen={restaurant.isOpen}
+            openingTimes={restaurant.openingTimes}
+            eatOutToHelpOut={restaurant.eatOutToHelpOut}
+            outdoorSeating={restaurant.outdoorSeating}
+            website={restaurant.website}
+            instagram={restaurant.instagram}
+            phoneNumber={restaurant.phoneNumber}
+            picture={restaurant.picture}
+            onSaveRestaurant={handleSaveRestaurant}
+          />
+        ))}
+      </div>
+    </>
   );
 }
