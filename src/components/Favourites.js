@@ -29,10 +29,8 @@ export default function Favourites() {
     axios
       .delete(`http://localhost:4000/api/v1/favourite/${_id}`)
       .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
-      .then(() => {
-        console.log("deleted");
-      })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
       });
   };

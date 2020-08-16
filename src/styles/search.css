@@ -42,6 +42,10 @@
   margin: 0 5px
 }
 
+.row :any-link:hover {
+  background-color: #BF4E30;
+}
+
 
 @media only screen and (max-width: 768px) {
   .search-input {

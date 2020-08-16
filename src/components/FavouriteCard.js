@@ -19,7 +19,7 @@ export default function FavouriteCard({
         <h4>{type}</h4>
       </div>
       <div>
-        <h4>Address:</h4>
+        <h4>Address: 1 Example, M0 0AA</h4>
         <h4>Rating:</h4>
       </div>
       <button
