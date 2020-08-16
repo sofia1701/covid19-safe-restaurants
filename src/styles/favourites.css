@@ -2,11 +2,12 @@
   grid-column: 1 / 4;
   grid-row: 2 / 3;
   min-height: 73vh;
+  grid-template-columns: repeat(1, 1fr);
 }
 
-.favourite-cards {
+.favourite-card {
   display: flex;
-  padding: 10px;
+  justify-content: space-between;
   background-color: rgb(240, 220, 176);
 }
 

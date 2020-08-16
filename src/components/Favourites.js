@@ -10,31 +10,52 @@ export default function Favourites() {
   const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
+    if (userData.user !== undefined) {
+      axios
+        .get(
+          `http://localhost:4000/api/v1/favourite?query={"fbUserId":"${userData.user.id}"}&populate=restaurant`
+        )
+        .then((response) => {
+          setFavourites(response.data);
+        })
+        .catch((err) => {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        });
+    }
+  }, [userData]);
+
+  const handleDeleteFavourite = (_id) => {
     axios
-      .get(`http://localhost:4000/api/v1/favourite?populate=restaurant`)
-      .then((response) => {
-        setFavourites(response.data);
+      .delete(`http://localhost:4000/api/v1/favourite/${_id}`)
+      .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
+      .then(() => {
+        console.log("deleted");
       })
       .catch((err) => {
-        // eslint-disable-next-line no-console
         console.log(err);
       });
-  }, []);
+  };
 
   return (
     <div className="favourites">
       {userData.user ? (
-        <div className="favourite-cards">
-          {favourites.map((favourite) => (
-            <FavouriteCard
-              key={favourite._id}
-              _id={favourite.restaurant._id}
-              name={favourite.restaurant.name}
-              type={favourite.restaurant.type}
-              picture={favourite.restaurant.picture}
-            />
-          ))}
-        </div>
+        <h3>
+          Welcome,
+          {userData.user.displayName}
+        </h3>
+      ) : null}
+      {userData.user ? (
+        favourites.map((favourite) => (
+          <FavouriteCard
+            key={favourite._id}
+            _id={favourite._id}
+            name={favourite.restaurant.name}
+            type={favourite.restaurant.type}
+            picture={favourite.restaurant.picture}
+            deleteFavourite={handleDeleteFavourite}
+          />
+        ))
       ) : (
         <p>Please login to your account.</p>
       )}
