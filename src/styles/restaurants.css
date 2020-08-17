@@ -5,7 +5,7 @@
 }
 
 .card {
-  background-color: rgb(240, 220, 176);
+  background-color: rgb(250,235,215);
 }
 
 .card-header, .card-description {
@@ -17,16 +17,16 @@
   align-items: center;
 }
 
+.card-header h3 {
+  color: black;
+}
+
 .card-description p {
   margin: 0 10px;
 }
 
 .card-description h4 {
   margin-bottom: 0;
-}
-
-.card-description p {
-  margin-top: 0;
 }
 
 .details-button {
@@ -80,7 +80,7 @@
 }
 
 .save-button {
-  background-color: rgb(240, 220, 176);
+  background-color: rgb(250,235,215);
   border: none;
   color: black;
 }

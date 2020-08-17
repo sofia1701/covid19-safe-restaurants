@@ -1,8 +1,12 @@
 .favourites {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  min-height: 75vh;
+  min-height: 70.7vh;
   padding: 10px;
+}
+
+.favourites h3 {
+  color: black;
 }
 
 .favourite-cards {
@@ -15,9 +19,13 @@
 .favourite-card {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(240, 220, 176);
+  background-color: rgb(250,235,215);
   margin: 0 100px;
   height: 130px;
+}
+
+.favourite-header h3{
+  color: black;
 }
 
 .favourite-picture {

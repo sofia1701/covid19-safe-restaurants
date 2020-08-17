@@ -5,10 +5,11 @@ body {
 
 .App {
   text-align: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: black;
   display: grid;
   grid-gap: 1vh;
   min-height: 100vh;
+  letter-spacing: 1px;
 }
 

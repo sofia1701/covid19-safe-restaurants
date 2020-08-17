@@ -52,8 +52,8 @@ export default function Favourites() {
     <div className="favourites">
       {userData.user ? (
         <h3>
-          Welcome,
-          {userData.user.displayName}
+          {`Welcome,
+          ${userData.user.displayName}!`}
         </h3>
       ) : null}
       <Alert message={alert.message} success={alert.isSuccess} />
