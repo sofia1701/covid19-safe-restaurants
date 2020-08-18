@@ -51,7 +51,7 @@ export default function Restaurants() {
       })
       .then(() => {
         setAlert({
-          message: "Property saved in favourites.",
+          message: "Restaurant saved in favourites.",
           isSuccess: true,
         });
       })

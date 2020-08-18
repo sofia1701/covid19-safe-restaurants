@@ -85,6 +85,10 @@
   color: black;
 }
 
+.save-button:hover{
+  color: #9A031E;
+}
+
 @media only screen and (max-width: 768px) {
   .restaurants {
     grid-template-columns: repeat(2, 1fr);

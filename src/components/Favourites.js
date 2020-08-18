@@ -33,7 +33,7 @@ export default function Favourites() {
       .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
       .then(() => {
         setAlert({
-          message: "Property deleted.",
+          message: "Restaurant removed from favourites.",
           isSuccess: true,
         });
       })
