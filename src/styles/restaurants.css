@@ -37,6 +37,7 @@
   background-color: #9A031E;
   margin-top: 0;
   border: none;
+  cursor: pointer;
 }
 
 .details-button:hover {
@@ -83,6 +84,7 @@
   background-color: rgb(250,235,215);
   border: none;
   color: black;
+  cursor: pointer;
 }
 
 .save-button:hover{

@@ -44,6 +44,7 @@
   background-color: #9A031E;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
 .delete-button:hover {
