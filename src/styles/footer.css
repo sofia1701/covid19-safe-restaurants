@@ -2,9 +2,10 @@
   grid-column: 1 / 4;
   grid-row: 3 / 4;
   background-color: #BF4E30;
-  color: white;
+  color: rgb(247, 242, 242);
   height: 10vh;
   display: grid;
   justify-content: center;
   align-items: center;
+  font-size: 13px;
 }

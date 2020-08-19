@@ -11,16 +11,18 @@ export default function FavouriteCard({
 }) {
   return (
     <div className="favourite-card">
-      <div>
-        <img className="favourite-picture" src={picture} alt="restaurant" />
-      </div>
+      <img className="favourite-picture" src={picture} alt="restaurant" />
+
       <div className="favourite-header">
-        <h3>{name}</h3>
-        <h4>{type}</h4>
+        <h4>{name}</h4>
+        <h5>{type}</h5>
       </div>
       <div>
-        <h4>Address: 1 Example, M0 0AA</h4>
-        <h4>Rating:</h4>
+        <h5>Address: 1 Example, M0 0AA</h5>
+        <h5>Contact: 000000000</h5>
+      </div>
+      <div>
+        <h5>Rating</h5>
       </div>
       <button
         onClick={() => deleteFavourite(_id)}
