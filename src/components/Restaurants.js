@@ -73,6 +73,18 @@ export default function Restaurants() {
       });
   };
 
+  const handleRemoveRestaurant = async (restaurantId) => {
+    try {
+      const res = await axios({
+        method: "DELETE",
+        url: `http://localhost:4000/api/v1/favourite/?query={"restaurant":"${restaurantId}"}`,
+      });
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const filteredRes = restaurants.filter((restaurant) => {
     return restaurant.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
   });
@@ -100,6 +112,7 @@ export default function Restaurants() {
             phoneNumber={restaurant.phoneNumber}
             picture={restaurant.picture}
             onSaveRestaurant={handleSaveRestaurant}
+            onRemoveRestaurant={handleRemoveRestaurant}
           />
         ))}
       </div>

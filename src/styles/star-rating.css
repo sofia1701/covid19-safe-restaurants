@@ -1,0 +1,19 @@
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  min-width: 100px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+label {
+  width: 30px;
+  margin: 0;
+}

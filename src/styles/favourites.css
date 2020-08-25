@@ -17,9 +17,9 @@
 }
 
 .favourite-card {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(250,235,215);
+  display: grid;
+  grid-template-columns: 4fr 4fr 12fr 6fr 1fr;
+  background-color: rgb(250, 235, 215);
   margin: 0 100px;
   height: 130px;
 }
@@ -28,28 +28,37 @@
   width: 130px;
   height: 130px;
   opacity: 1;
-	-webkit-transition: .1s ease-in-out;
-	transition: .1s ease-in-out;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
-.favourite-picture:hover{
-  opacity: .8;
+.favourite-picture:hover {
+  opacity: 0.8;
 }
 
 .delete-button {
-  background-color: #9A031E;
+  background-color: #9a031e;
   border: none;
   color: white;
   cursor: pointer;
 }
 
 .delete-button:hover {
-  background-color: #BF4E30;
+  background-color: #bf4e30;
 }
 
+.rating {
+  padding: 5px;
+  width: 100px;
+}
+
+.favourite-header,
+.address {
+  padding: 5px;
+}
 @media only screen and (max-width: 768px) {
   .favourite-card {
-    margin: 0 20px
+    margin: 0 20px;
   }
 }
 
@@ -60,5 +69,10 @@
   .favourite-picture {
     width: 100px;
     height: 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  .favourite-card {
   }
 }

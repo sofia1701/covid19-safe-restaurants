@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
+
 import {
   FaInstagram,
   FaCheck,
@@ -8,7 +9,10 @@ import {
   FaGlobe,
   FaHeart,
 } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import getSaved from "../requests/getSaved";
 import userContext from "../context/userContext";
+const faHeartReg = require("@fortawesome/free-regular-svg-icons/faHeart");
 
 export default function RestaurantCard({
   _id,
@@ -27,9 +31,34 @@ export default function RestaurantCard({
   phoneNumber,
   picture,
   onSaveRestaurant,
+  onRemoveRestaurant,
 }) {
   const [flip, setFlip] = useState(false);
+  const [saved, setSaved] = useState(false);
+
   const { userData } = useContext(userContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getSaved(userData.user.id);
+
+        if (response.status === 200) {
+          const isSaved = response.data.some(
+            (restaurant) => _id === restaurant.restaurant._id
+          );
+
+          if (isSaved) {
+            setSaved(true);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="card">
@@ -145,6 +174,8 @@ export default function RestaurantCard({
               </div>
             )}
           </div>
+
+          {/*
           {userData.user ? (
             <button
               type="button"
@@ -154,6 +185,38 @@ export default function RestaurantCard({
               <FaHeart size={22} />
             </button>
           ) : null}
+          */}
+
+          {userData.user && !saved && (
+            // eslint-disable-next-line
+            <a
+              className="save-button"
+              href="#"
+              onClick={() => {
+                onSaveRestaurant(_id);
+                setSaved(true);
+              }}
+            >
+              <FontAwesomeIcon
+                className="save-button"
+                icon={faHeartReg.faHeart}
+              />
+            </a>
+          )}
+
+          {userData.user && saved && (
+            // eslint-disable-next-line
+            <a
+              className="save-button"
+              href="#"
+              onClick={() => {
+                onRemoveRestaurant(_id);
+                setSaved(false);
+              }}
+            >
+              <FaHeart size={22} />
+            </a>
+          )}
 
           <button
             className="details-button"

@@ -5,10 +5,11 @@
 }
 
 .card {
-  background-color: rgb(250,235,215);
+  background-color: rgb(250, 235, 215);
 }
 
-.card-header, .card-description {
+.card-header,
+.card-description {
   margin: 0;
   height: 100%;
   display: flex;
@@ -34,14 +35,14 @@
   width: 100%;
   height: 40px;
   color: white;
-  background-color: #9A031E;
+  background-color: #9a031e;
   margin-top: 0;
   border: none;
   cursor: pointer;
 }
 
 .details-button:hover {
-  background-color: #BF4E30;
+  background-color: #bf4e30;
 }
 
 .contact-icons {
@@ -52,7 +53,7 @@
 .text-link {
   text-decoration: none;
   color: black;
-  margin: 5px 15px
+  margin: 5px 15px;
 }
 
 .delivery {
@@ -72,23 +73,26 @@
   width: 250px;
   height: 250px;
   opacity: 1;
-	-webkit-transition: .1s ease-in-out;
-	transition: .1s ease-in-out;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+  margin-bottom: 10px;
 }
 
-.picture:hover{
-  opacity: .8;
+.picture:hover {
+  opacity: 0.8;
 }
 
 .save-button {
-  background-color: rgb(250,235,215);
+  background-color: rgb(250, 235, 215);
   border: none;
-  color: black;
+  color: #9a031e;
   cursor: pointer;
+  font-size: 22px;
+  margin: 8px;
 }
 
-.save-button:hover{
-  color: #9A031E;
+.save-button:hover {
+  color: rgb(92, 87, 87);
 }
 
 @media only screen and (max-width: 768px) {

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FaTrashAlt } from "react-icons/fa";
+import StarRating from "./StarRating";
 
 export default function FavouriteCard({
   name,
@@ -17,12 +18,13 @@ export default function FavouriteCard({
         <h4>{name}</h4>
         <h5>{type}</h5>
       </div>
-      <div>
+      <div className="address">
         <h5>Address: 1 Example, M0 0AA</h5>
         <h5>Contact: 000000000</h5>
       </div>
-      <div>
+      <div className="rating">
         <h5>Rating</h5>
+        <StarRating />
       </div>
       <button
         onClick={() => deleteFavourite(_id)}
