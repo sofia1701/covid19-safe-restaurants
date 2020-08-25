@@ -21,15 +21,10 @@ export default function FavouriteCard({
         <h4>{name}</h4>
         <h5>{type}</h5>
       </div>
-<<<<<<< HEAD
-      <div className="address">
-        <h5>Address: 1 Example, M0 0AA</h5>
-        <h5>Contact: 000000000</h5>
-=======
+
       <div>
         <h5>{`Address: ${address}, ${postcode}`}</h5>
         <h5>{`Contact: ${phone}`}</h5>
->>>>>>> 0fac22e291889278f47c5d13fee5affba36379f7
       </div>
       <div className="rating">
         <h5>Rating</h5>
