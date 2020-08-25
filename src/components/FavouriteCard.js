@@ -6,6 +6,9 @@ export default function FavouriteCard({
   name,
   type,
   picture,
+  address,
+  postcode,
+  phone,
   deleteFavourite,
   _id,
 }) {
@@ -18,8 +21,8 @@ export default function FavouriteCard({
         <h5>{type}</h5>
       </div>
       <div>
-        <h5>Address: 1 Example, M0 0AA</h5>
-        <h5>Contact: 000000000</h5>
+        <h5>{`Address: ${address}, ${postcode}`}</h5>
+        <h5>{`Contact: ${phone}`}</h5>
       </div>
       <div>
         <h5>Rating</h5>
