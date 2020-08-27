@@ -21,6 +21,7 @@ export default function Favourites() {
         .then((response) => {
           setFavourites(response.data);
           const ratingsArray = [];
+          // eslint-disable-next-line
           for (let i = 0; i < response.data.length; i++) {
             ratingsArray.push(response.data[i].rating);
           }

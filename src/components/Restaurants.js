@@ -48,6 +48,7 @@ export default function Restaurants() {
       .post("http://localhost:4000/api/v1/favourite", {
         fbUserId: userData.user.id,
         restaurant: restaurantId,
+        rating: 0,
       })
       .then(() => {
         setAlert({
@@ -79,8 +80,10 @@ export default function Restaurants() {
         method: "DELETE",
         url: `http://localhost:4000/api/v1/favourite/?query={"restaurant":"${restaurantId}"}`,
       });
+      // eslint-disable-next-line
       console.log(res);
     } catch (err) {
+      // eslint-disable-next-line
       console.log(err);
     }
   };

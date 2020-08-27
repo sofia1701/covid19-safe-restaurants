@@ -48,4 +48,12 @@ FavouriteCard.propTypes = {
   picture: PropTypes.string.isRequired,
   deleteFavourite: PropTypes.func.isRequired,
   _id: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  postcode: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+};
+
+FavouriteCard.defaultProps = {
+  rating: 0,
 };

@@ -12,6 +12,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import getSaved from "../requests/getSaved";
 import userContext from "../context/userContext";
+// eslint-disable-next-line
 const faHeartReg = require("@fortawesome/free-regular-svg-icons/faHeart");
 
 export default function RestaurantCard({
@@ -53,6 +54,7 @@ export default function RestaurantCard({
           }
         }
       } catch (err) {
+        // eslint-disable-next-line
         console.log(err);
       }
     };
@@ -248,4 +250,5 @@ RestaurantCard.propTypes = {
   phoneNumber: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
   onSaveRestaurant: PropTypes.func.isRequired,
+  onRemoveRestaurant: PropTypes.func.isRequired,
 };
