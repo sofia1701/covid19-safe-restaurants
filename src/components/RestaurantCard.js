@@ -40,27 +40,29 @@ export default function RestaurantCard({
   const { userData } = useContext(userContext);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getSaved(userData.user.id);
+    if (userData.user !== undefined) {
+      const fetchData = async () => {
+        try {
+          const response = await getSaved(userData.user.id);
 
-        if (response.status === 200) {
-          const isSaved = response.data.some(
-            (restaurant) => _id === restaurant.restaurant._id
-          );
+          if (response.status === 200) {
+            const isSaved = response.data.some(
+              (restaurant) => _id === restaurant.restaurant._id
+            );
 
-          if (isSaved) {
-            setSaved(true);
+            if (isSaved) {
+              setSaved(true);
+            }
           }
+        } catch (err) {
+          // eslint-disable-next-line
+          console.log(err);
         }
-      } catch (err) {
-        // eslint-disable-next-line
-        console.log(err);
-      }
-    };
+      };
 
-    fetchData();
-  }, []);
+      fetchData();
+    }
+  }, [_id, userData.user]);
 
   return (
     <div className="card">
