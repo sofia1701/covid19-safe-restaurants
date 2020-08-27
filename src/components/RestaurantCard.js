@@ -60,7 +60,7 @@ export default function RestaurantCard({
     };
 
     fetchData();
-  }, []);
+  }, [_id, userData.user.id]);
 
   return (
     <div className="card">
