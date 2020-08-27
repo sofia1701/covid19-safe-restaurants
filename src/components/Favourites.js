@@ -73,7 +73,7 @@ export default function Favourites() {
               _id={favourite._id}
               name={favourite.restaurant.name}
               type={favourite.restaurant.type}
-              address={favourite.restaurant.address}
+              address={favourite.restaurant.streetAddress}
               postcode={favourite.restaurant.postcode}
               phone={favourite.restaurant.phoneNumber}
               picture={favourite.restaurant.picture}
