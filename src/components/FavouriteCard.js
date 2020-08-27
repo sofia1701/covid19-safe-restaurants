@@ -12,6 +12,7 @@ export default function FavouriteCard({
   phone,
   deleteFavourite,
   _id,
+  rating,
 }) {
   return (
     <div className="favourite-card">
@@ -28,7 +29,7 @@ export default function FavouriteCard({
       </div>
       <div className="rating">
         <h5>Rating</h5>
-        <StarRating />
+        <StarRating id={_id} databaseRating={rating} />
       </div>
       <button
         onClick={() => deleteFavourite(_id)}

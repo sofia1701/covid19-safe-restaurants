@@ -41,6 +41,7 @@
   border: none;
   color: white;
   cursor: pointer;
+  height: 130px;
 }
 
 .delete-button:hover {

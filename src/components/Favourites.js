@@ -10,6 +10,7 @@ export default function Favourites() {
 
   const [favourites, setFavourites] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  const [ratings, setRatings] = useState([]);
 
   useEffect(() => {
     if (userData.user !== undefined) {
@@ -19,6 +20,11 @@ export default function Favourites() {
         )
         .then((response) => {
           setFavourites(response.data);
+          const ratingsArray = [];
+          for (let i = 0; i < response.data.length; i++) {
+            ratingsArray.push(response.data[i].rating);
+          }
+          setRatings(ratingsArray);
         })
         .catch((err) => {
           // eslint-disable-next-line no-console
@@ -60,7 +66,7 @@ export default function Favourites() {
 
       {userData.user ? (
         <div className="favourite-cards">
-          {favourites.map((favourite) => (
+          {favourites.map((favourite, index) => (
             <FavouriteCard
               key={favourite._id}
               _id={favourite._id}
@@ -71,6 +77,7 @@ export default function Favourites() {
               phone={favourite.restaurant.phoneNumber}
               picture={favourite.restaurant.picture}
               deleteFavourite={handleDeleteFavourite}
+              rating={ratings[index]}
             />
           ))}
         </div>

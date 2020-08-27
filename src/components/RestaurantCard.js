@@ -127,7 +127,7 @@ export default function RestaurantCard({
             {isOpen ? (
               <div style={{ color: "green" }}>Open</div>
             ) : (
-              <div style={{ color: "red" }}>Temporarly Closed</div>
+              <div style={{ color: "red" }}>Temporarily Closed</div>
             )}
           </div>
           <div>
