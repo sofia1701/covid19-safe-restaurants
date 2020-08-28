@@ -56,16 +56,6 @@ export default function Restaurants() {
           isSuccess: true,
         });
       })
-      .then(() => {
-        setTimeout(
-          () =>
-            setAlert({
-              message: "",
-              isSuccess: false,
-            }),
-          2000
-        );
-      })
       .catch(() => {
         setAlert({
           message: "Server error. Please try again later.",
