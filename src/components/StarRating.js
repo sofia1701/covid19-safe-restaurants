@@ -15,7 +15,7 @@ const StarRating = ({ id, databaseRating }) => {
 
         return (
           // eslint-disable-next-line
-          <label key={i}>
+          <label className="label" key={i}>
             <input
               type="radio"
               name="rating"
