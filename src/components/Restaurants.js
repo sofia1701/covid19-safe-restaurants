@@ -53,12 +53,6 @@ export default function Restaurants() {
         restaurant: restaurantId,
         rating: 0,
       })
-      .then(() => {
-        setAlert({
-          message: "Restaurant saved in favourites.",
-          isSuccess: true,
-        });
-      })
       .catch(() => {
         setAlert({
           message: "Server error. Please try again later.",

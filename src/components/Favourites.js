@@ -41,12 +41,6 @@ export default function Favourites() {
     axios
       .delete(`http://localhost:4000/api/v1/favourite/${_id}`)
       .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
-      .then(() => {
-        setAlert({
-          message: "Restaurant removed from favourites.",
-          isSuccess: true,
-        });
-      })
       .catch(() => {
         setAlert({
           message: "Server error. Please try again later.",
