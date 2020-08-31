@@ -9,6 +9,7 @@ import userContext from "../context/userContext";
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  const [load, setLoad] = useState(false);
 
   const { query } = useContext(userContext);
   const { userData } = useContext(userContext);
@@ -18,6 +19,7 @@ export default function Restaurants() {
       .get("http://localhost:4000/api/v1/restaurant")
       .then((response) => {
         setRestaurants(response.data);
+        setLoad(true);
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -26,6 +28,7 @@ export default function Restaurants() {
           message: "Server error. Please try again later.",
           isSuccess: false,
         });
+        setLoad(true);
       });
   }, []);
 
@@ -49,12 +52,6 @@ export default function Restaurants() {
         fbUserId: userData.user.id,
         restaurant: restaurantId,
         rating: 0,
-      })
-      .then(() => {
-        setAlert({
-          message: "Restaurant saved in favourites.",
-          isSuccess: true,
-        });
       })
       .catch(() => {
         setAlert({
@@ -84,31 +81,37 @@ export default function Restaurants() {
 
   return (
     <>
-      <Alert message={alert.message} success={alert.isSuccess} />
-      <div className="restaurants">
-        {filteredRes.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant._id}
-            _id={restaurant._id}
-            name={restaurant.name}
-            type={restaurant.type}
-            description={restaurant.description}
-            onDeliveroo={restaurant.onDeliveroo}
-            onJustEat={restaurant.onJustEat}
-            onUberEats={restaurant.onUberEats}
-            isOpen={restaurant.isOpen}
-            openingTimes={restaurant.openingTimes}
-            eatOutToHelpOut={restaurant.eatOutToHelpOut}
-            outdoorSeating={restaurant.outdoorSeating}
-            website={restaurant.website}
-            instagram={restaurant.instagram}
-            phoneNumber={restaurant.phoneNumber}
-            picture={restaurant.picture}
-            onSaveRestaurant={handleSaveRestaurant}
-            onRemoveRestaurant={handleRemoveRestaurant}
-          />
-        ))}
-      </div>
+      {load ? (
+        <>
+          <Alert message={alert.message} success={alert.isSuccess} />
+          <div className="restaurants">
+            {filteredRes.map((restaurant) => (
+              <RestaurantCard
+                key={restaurant._id}
+                _id={restaurant._id}
+                name={restaurant.name}
+                type={restaurant.type}
+                description={restaurant.description}
+                onDeliveroo={restaurant.onDeliveroo}
+                onJustEat={restaurant.onJustEat}
+                onUberEats={restaurant.onUberEats}
+                isOpen={restaurant.isOpen}
+                openingTimes={restaurant.openingTimes}
+                eatOutToHelpOut={restaurant.eatOutToHelpOut}
+                outdoorSeating={restaurant.outdoorSeating}
+                website={restaurant.website}
+                instagram={restaurant.instagram}
+                phoneNumber={restaurant.phoneNumber}
+                picture={restaurant.picture}
+                onSaveRestaurant={handleSaveRestaurant}
+                onRemoveRestaurant={handleRemoveRestaurant}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="loading">Loading the restaurants...</div>
+      )}
     </>
   );
 }

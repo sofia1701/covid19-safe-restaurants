@@ -11,6 +11,7 @@ export default function Favourites() {
   const [favourites, setFavourites] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
   const [ratings, setRatings] = useState([]);
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
     if (userData.user !== undefined) {
@@ -26,10 +27,12 @@ export default function Favourites() {
             ratingsArray.push(response.data[i].rating);
           }
           setRatings(ratingsArray);
+          setLoad(true);
         })
         .catch((err) => {
           // eslint-disable-next-line no-console
           console.log(err);
+          setLoad(true);
         });
     }
   }, [userData]);
@@ -38,12 +41,6 @@ export default function Favourites() {
     axios
       .delete(`http://localhost:4000/api/v1/favourite/${_id}`)
       .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
-      .then(() => {
-        setAlert({
-          message: "Restaurant removed from favourites.",
-          isSuccess: true,
-        });
-      })
       .catch(() => {
         setAlert({
           message: "Server error. Please try again later.",
@@ -64,20 +61,24 @@ export default function Favourites() {
 
       {userData.user ? (
         <div className="favourite-cards">
-          {favourites.map((favourite, index) => (
-            <FavouriteCard
-              key={favourite._id}
-              _id={favourite._id}
-              name={favourite.restaurant.name}
-              type={favourite.restaurant.type}
-              address={favourite.restaurant.streetAddress}
-              postcode={favourite.restaurant.postcode}
-              phone={favourite.restaurant.phoneNumber}
-              picture={favourite.restaurant.picture}
-              deleteFavourite={handleDeleteFavourite}
-              rating={ratings[index]}
-            />
-          ))}
+          {load ? (
+            favourites.map((favourite, index) => (
+              <FavouriteCard
+                key={favourite._id}
+                _id={favourite._id}
+                name={favourite.restaurant.name}
+                type={favourite.restaurant.type}
+                address={favourite.restaurant.streetAddress}
+                postcode={favourite.restaurant.postcode}
+                phone={favourite.restaurant.phoneNumber}
+                picture={favourite.restaurant.picture}
+                deleteFavourite={handleDeleteFavourite}
+                rating={ratings[index]}
+              />
+            ))
+          ) : (
+            <div>Loading your favourites...</div>
+          )}
         </div>
       ) : (
         <p>Please login to your account.</p>
