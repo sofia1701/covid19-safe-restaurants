@@ -4,7 +4,7 @@ This project aims to create a restaurant search engine that allows a user to ide
 
 The user will be able to save favourites and rate restaurants after logging in or register in our website.
 
-The restaurants listed will come from our backend which you'll be able to find here: 
+The restaurants listed will come from our backend which you'll be able to find here: <br/>
 https://github.com/zeinaji/covid-safe-restaurants-api
 
 ## Technologies
