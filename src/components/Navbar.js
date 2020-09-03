@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav>
       <Link to="/" className="title">
-        Title
+        Eat Safe Worry Less
       </Link>
 
       <div className="nav-buttons">
