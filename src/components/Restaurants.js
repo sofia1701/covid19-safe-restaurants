@@ -126,12 +126,14 @@ export default function Restaurants() {
               />
             ))}
           </div>
-          <Pagination
-            restaurantsPerPage={restaurantsPerPage}
-            totalRestaurants={restaurants.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+          {restaurantsArray === currentRestaurants && (
+            <Pagination
+              restaurantsPerPage={restaurantsPerPage}
+              totalRestaurants={restaurants.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          )}
         </div>
       ) : (
         <div className="loading">Loading the restaurants...</div>
