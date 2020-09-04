@@ -12,7 +12,7 @@ export default function Restaurants() {
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
   const [load, setLoad] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [restaurantsPerPage, setRestaurantsPerPage] = useState(10);
+  const [restaurantsPerPage] = useState(9);
 
   const { query } = useContext(userContext);
   const { userData } = useContext(userContext);
