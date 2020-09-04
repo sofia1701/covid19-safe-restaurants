@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import RestaurantCard from "./RestaurantCard";
+import Pagination from "./Pagination";
 import Alert from "./Alert";
 import "../styles/restaurants.css";
 import userContext from "../context/userContext";
@@ -10,6 +11,8 @@ export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
   const [load, setLoad] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [restaurantsPerPage, setRestaurantsPerPage] = useState(10);
 
   const { query } = useContext(userContext);
   const { userData } = useContext(userContext);
@@ -75,16 +78,24 @@ export default function Restaurants() {
     }
   };
 
-  const filteredRes = restaurants.filter((restaurant) => {
-    return restaurant.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-  });
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const indexOfLastRestaurant = currentPage * restaurantsPerPage;
+  const indexOfFirstRestaurant = indexOfLastRestaurant - restaurantsPerPage;
+  const currentRestaurants = restaurants.slice(
+    indexOfFirstRestaurant,
+    indexOfLastRestaurant
+  );
+  const filteredRes = currentRestaurants.filter(
+    (restaurant) =>
+      restaurant.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  );
   return (
     <>
       {load ? (
-        <>
+        <div className="restaurants">
           <Alert message={alert.message} success={alert.isSuccess} />
-          <div className="restaurants">
+          <div className="restaurants-list">
             {filteredRes.map((restaurant) => (
               <RestaurantCard
                 key={restaurant._id}
@@ -108,7 +119,13 @@ export default function Restaurants() {
               />
             ))}
           </div>
-        </>
+          <Pagination
+            restaurantsPerPage={restaurantsPerPage}
+            totalRestaurants={restaurants.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        </div>
       ) : (
         <div className="loading">Loading the restaurants...</div>
       )}

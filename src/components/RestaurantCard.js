@@ -58,22 +58,10 @@ export default function RestaurantCard({
           // eslint-disable-next-line
           console.log(err);
         }
-<<<<<<< HEAD
-      } catch (err) {
-        // eslint-disable-next-line
-        console.log(err);
-      }
-    };
-
-    fetchData();
-  }, [_id, userData.user.id]);
-=======
       };
-
       fetchData();
     }
   }, [_id, userData.user]);
->>>>>>> f6d4d5dd60ae254930c0cf8996cee1db5ed7b159
 
   return (
     <div className="card">
