@@ -134,6 +134,7 @@
 .page-link {
   text-decoration: none;
   color: #9a031e;
+  font-family: serif;
 }
 
 .page-link:active {
