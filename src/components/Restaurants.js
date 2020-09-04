@@ -42,6 +42,7 @@ export default function Restaurants() {
       .get(`http://localhost:4000/api/v1/restaurant${search}`)
       .then((response) => {
         setRestaurants(response.data);
+        setCurrentPage(1);
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -86,17 +87,23 @@ export default function Restaurants() {
     indexOfFirstRestaurant,
     indexOfLastRestaurant
   );
-  const filteredRes = currentRestaurants.filter(
+  const filteredRes = restaurants.filter(
     (restaurant) =>
       restaurant.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
+
+  const restaurantsArray =
+    filteredRes.length < currentRestaurants.length
+      ? filteredRes
+      : currentRestaurants;
+
   return (
     <>
       {load ? (
         <div className="restaurants">
           <Alert message={alert.message} success={alert.isSuccess} />
           <div className="restaurants-list">
-            {filteredRes.map((restaurant) => (
+            {restaurantsArray.map((restaurant) => (
               <RestaurantCard
                 key={restaurant._id}
                 _id={restaurant._id}
