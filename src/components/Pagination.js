@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Pagination = ({
   restaurantsPerPage,
@@ -58,6 +59,13 @@ const Pagination = ({
       </ul>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  restaurantsPerPage: PropTypes.number.isRequired,
+  totalRestaurants: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };
 
 export default Pagination;
