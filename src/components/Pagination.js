@@ -9,6 +9,7 @@ const Pagination = ({
 }) => {
   const pageNumbers = [];
 
+  // eslint-disable-next-line no-plusplus
   for (let i = 1; i <= Math.ceil(totalRestaurants / restaurantsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -36,7 +37,6 @@ const Pagination = ({
                 <a
                   onClick={() => {
                     paginate(number);
-                    console.log(currentPage);
                   }}
                   href="#!"
                   className="page-link"

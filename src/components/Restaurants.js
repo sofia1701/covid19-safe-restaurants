@@ -19,7 +19,7 @@ export default function Restaurants() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/restaurant")
+      .get("https://covid-safe-api.herokuapp.com/api/v1/restaurant")
       .then((response) => {
         setRestaurants(response.data);
         setLoad(true);
@@ -39,7 +39,7 @@ export default function Restaurants() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/restaurant${search}`)
+      .get(`https://covid-safe-api.herokuapp.com/api/v1/restaurant${search}`)
       .then((response) => {
         setRestaurants(response.data);
         setCurrentPage(1);
@@ -52,7 +52,7 @@ export default function Restaurants() {
 
   const handleSaveRestaurant = (restaurantId) => {
     axios
-      .post("http://localhost:4000/api/v1/favourite", {
+      .post("https://covid-safe-api.herokuapp.com/api/v1/favourite", {
         fbUserId: userData.user.id,
         restaurant: restaurantId,
         rating: 0,
@@ -69,7 +69,7 @@ export default function Restaurants() {
     try {
       const res = await axios({
         method: "DELETE",
-        url: `http://localhost:4000/api/v1/favourite/?query={"restaurant":"${restaurantId}"}`,
+        url: `https://covid-safe-api.herokuapp.com/api/v1/favourite/?query={"restaurant":"${restaurantId}"}`,
       });
       // eslint-disable-next-line
       console.log(res);

@@ -17,7 +17,7 @@ export default function Favourites() {
     if (userData.user !== undefined) {
       axios
         .get(
-          `http://localhost:4000/api/v1/favourite?query={"fbUserId":"${userData.user.id}"}&populate=restaurant`
+          `https://covid-safe-api.herokuapp.com/api/v1/favourite?query={"fbUserId":"${userData.user.id}"}&populate=restaurant`
         )
         .then((response) => {
           setFavourites(response.data);
@@ -39,7 +39,7 @@ export default function Favourites() {
 
   const handleDeleteFavourite = (_id) => {
     axios
-      .delete(`http://localhost:4000/api/v1/favourite/${_id}`)
+      .delete(`https://covid-safe-api.herokuapp.com/api/v1/favourite/${_id}`)
       .then(() => setFavourites(favourites.filter((fav) => fav._id !== _id)))
       .catch(() => {
         setAlert({

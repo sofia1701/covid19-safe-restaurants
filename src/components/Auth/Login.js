@@ -21,7 +21,7 @@ export default function Login() {
     try {
       const loginUser = { email, password };
       const loginRes = await axios.post(
-        "http://localhost:5000/users/login",
+        "https://covid-safe-auth.herokuapp.com/users/login",
         loginUser
       );
       setUserData({

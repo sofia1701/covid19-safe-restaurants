@@ -178,18 +178,6 @@ export default function RestaurantCard({
             )}
           </div>
 
-          {/*
-          {userData.user ? (
-            <button
-              type="button"
-              className="save-button"
-              onClick={() => onSaveRestaurant(_id)}
-            >
-              <FaHeart size={22} />
-            </button>
-          ) : null}
-          */}
-
           {userData.user && !saved && (
             // eslint-disable-next-line
             <a
