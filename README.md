@@ -7,6 +7,9 @@ The user will be able to save favourites and rate restaurants after logging in o
 The restaurants listed will come from our backend which you'll be able to find here: <br/>
 https://github.com/zeinaji/covid-safe-restaurants-api
 
+The backend functionality for Login/Register, also developed by our team, can be found in: <br/>
+https://github.com/sofia1701/covid19-safe-restaurants-backend-auth
+
 ## Technologies
 
 React.js
