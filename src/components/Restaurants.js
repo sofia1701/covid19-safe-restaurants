@@ -93,7 +93,7 @@ export default function Restaurants() {
   );
 
   const restaurantsArray =
-    filteredRes.length < currentRestaurants.length
+    filteredRes.length <= currentRestaurants.length
       ? filteredRes
       : currentRestaurants;
 
